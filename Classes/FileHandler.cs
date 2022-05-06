@@ -15,25 +15,15 @@ namespace EloCarry_AIO.Classes
         public static async Task InstallRedistributables()
         {
             await RunExe(Resources.vcredist2008_x64, true);
-            Console.WriteLine("Installed");
             await RunExe(Resources.vcredist2008_x86, true);
-            Console.WriteLine("Installed");
             await RunExe(Resources.vcredist2010_x64, true);
-            Console.WriteLine("Installed");
             await RunExe(Resources.vcredist2010_x86, true);
-            Console.WriteLine("Installed");
             await RunExe(Resources.vcredist2012_x64, true);
-            Console.WriteLine("Installed");
             await RunExe(Resources.vcredist2012_x86, true);
-            Console.WriteLine("Installed");
             await RunExe(Resources.vcredist2013_x64, true);
-            Console.WriteLine("Installed");
             await RunExe(Resources.vcredist2013_x86, true);
-            Console.WriteLine("Installed");
             await RunExe(Resources.vcredist2015_2017_2019_2022_x64, true);
-            Console.WriteLine("Installed");
             await RunExe(Resources.vcredist2015_2017_2019_2022_x86, true);
-            Console.WriteLine("Installed");
         }
 
         public static void GameCFG()
@@ -41,9 +31,7 @@ namespace EloCarry_AIO.Classes
             try
             {
                 var value = Microsoft.Win32.Registry.GetValue(Constants.LoLClient, Constants.LoLClientInstallLocation, null);
-                Console.WriteLine(value.ToString());
                 string path = value + @"\Config\game.cfg";
-                string DX9 = File.ReadAllText(path);
                 string movementPrediction = File.ReadAllText(path);
                 movementPrediction = movementPrediction.Replace("PredictMovement=1", "PredictMovement=0");
                 File.WriteAllText(path, movementPrediction);
@@ -56,10 +44,8 @@ namespace EloCarry_AIO.Classes
             try
             {
                 var value = Microsoft.Win32.Registry.GetValue(Constants.LoLClient, Constants.LoLClientInstallLocation, null);
-                Console.WriteLine(value.ToString());
                 string path = value + @"\Config\game.cfg";
                 string DX9 = File.ReadAllText(path);
-                string movementPrediction = File.ReadAllText(path);
                 DX9 = DX9.Replace("PreferDX9LegacyMode=0", "PreferDX9LegacyMode=1");
                 File.WriteAllText(path, DX9);
             }
